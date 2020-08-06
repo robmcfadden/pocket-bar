@@ -50,9 +50,15 @@ class App extends React.Component {
             ... on drinks_drinks_Entry {
               imageUrl
               description
+              preparation
               ingredients {
                 ... on ingredients_ingredient_BlockType {
+                  quantity {
+                    quantity
+                    unit
+                  }
                   ingredients {
+                    title
                     id
                   }
                 }
