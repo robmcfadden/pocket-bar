@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// https://daveceddia.com/tailwind-create-react-app/#production-tailwind--cra-build
+import './tailwind.output.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
