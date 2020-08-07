@@ -39,30 +39,37 @@ class Popup extends React.Component {
     return (
       <div>
         <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" type="button" onClick={this.handleClick}>Make this Drink</button>
-        <button
-          class="block w-full z-10 fixed inset-0 bg-black opacity-50"
-          type="button"
-          style={{display: this.state.isOpen ? 'block' : 'none'}}
-          onClick={this.handleCloseClick}
-        >
-          Close
-        </button>
         <div
-          class="bg-white shadow-md rounded-md overflow-hidden fixed z-20 inset-auto transform -translate-x-1/2 -translate-y-1/2"
+          class="fixed z-10 inset-0 flex items-center justify-center"
           style={{
-            display: this.state.isOpen ? 'block' : 'none',
-            left: '50%',
-            top: '50%',
-            width: '20rem',
+            display: this.state.isOpen ? 'flex' : 'none',
           }}
         >
-          <img className="w-full h-64 object-cover" src={this.props.entry.imageUrl} alt={this.props.entry.title} />
-          <div class="p-6">
-            <h3 className="font-bold text-xl mb-2">{this.props.entry.title}</h3>
-            <h4 className="font-bold text-base text-gray-600">Peparation Instructions</h4>
-            <p className="text-gray-700 text-base mb-2">{this.props.entry.preparation}</p>
-            <h4 className="font-bold text-base text-gray-600">Ingredients</h4>
-            {ingredients}
+          <button
+            class="block w-full z-10 fixed inset-0 bg-black opacity-50 overflow-auto"
+            type="button"
+            style={{display: this.state.isOpen ? 'block' : 'none'}}
+            onClick={this.handleCloseClick}
+          >
+            Close
+          </button>
+          <div
+            class="bg-white shadow-md rounded-md overflow-hidden relative z-20"
+            style={{
+              width: '18rem',
+            }}
+          >
+            <div className="relative">
+              <button className="absolute top-0 right-0 mr-4 px-3 pb-1 rounded-b bg-teal-600 text-white text-2xl" type="button" onClick={this.handleCloseClick}>&times;</button>
+              <img className="w-full h-54 object-cover" src={this.props.entry.imageUrl} alt={this.props.entry.title} />
+            </div>
+            <div class="p-6 overflow-auto" style={{ maxHeight: '360px' }}>
+              <h3 className="font-bold text-xl mb-2">{this.props.entry.title}</h3>
+              <h4 className="font-bold text-base text-gray-600">Peparation Instructions</h4>
+              <p className="text-gray-700 text-base mb-2">{this.props.entry.preparation}</p>
+              <h4 className="font-bold text-base text-gray-600">Ingredients</h4>
+              {ingredients}
+            </div>
           </div>
         </div>
       </div>
